@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>توب كار | Top Car - معرض سيارات في ليبيا</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --white: #ffffff;
+            --black: #0a0a0a;
+            --gray-400: #a3a3a3;
+            --gray-500: #888888;
+            --gray-600: #666666;
+            --whatsapp: #25D366;
+            --facebook: #1877F2;
+            --instagram: #E4405F;
+            --google-maps: #4285F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .top-bar {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: var(--gray-400);
+            padding: 12px 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .top-bar a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--white);
+        }
+
+        .top-bar span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-400);
+        }
+
+        header {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .logo-placeholder span {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+
+        .logo-text .main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .logo-text .sub {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+            right: auto;
+            left: 0;
+        }
+
+        .nav-links a.active {
+            font-weight: 700;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--gray-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px 15px;
+            color: var(--white);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: var(--white);
+            padding: 14px 35px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3a3a3a, #ffffff, #3a3a3a);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #151515 30%, #1a1a1a 70%, #0f0f0f 100%);
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 60%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .btn {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .about {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            line-height: 2;
+        }
+
+        .mission {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #111111, #1a1a1a, #111111);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .mission-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-content p {
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            line-height: 2;
+        }
+
+        /* ===== معرض الصور مع الأسهم ===== */
+        .gallery {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, #151515, #0f0f0f);
+            position: relative;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+            overflow: hidden;
+            padding: 0 10px;
+        }
+
+        .gallery-slider {
+            display: flex;
+            gap: 12px;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .gallery-item {
+            min-width: calc(25% - 9px);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s ease;
+            border-radius: 6px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 20px 40px rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* أسهم التنقل */
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .gallery-arrow:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: var(--white);
+            color: var(--white);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .gallery-arrow.prev {
+            left: 0px;
+        }
+
+        .gallery-arrow.next {
+            right: 0px;
+        }
+
+        .gallery-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .contact {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #0f0f0f);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.03);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .contact-card .icon-wrapper {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .icon-whatsapp { background: rgba(37, 211, 102, 0.15); color: var(--whatsapp); }
+        .icon-facebook { background: rgba(24, 119, 242, 0.15); color: var(--facebook); }
+        .icon-instagram { background: rgba(228, 64, 95, 0.15); color: var(--instagram); }
+        .icon-phone { background: rgba(255, 255, 255, 0.08); color: var(--gray-400); }
+        .icon-email { background: rgba(255, 255, 255, 0.08); color: var(--gray-400); }
+        .icon-maps { background: rgba(66, 133, 244, 0.15); color: var(--google-maps); }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .contact-card a,
+        .contact-card .info-text {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.95rem;
+            word-break: break-all;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .contact-card .btn-small {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 8px 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .contact-card .btn-small:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        footer {
+            background: linear-gradient(180deg, #0a0a0a, #050505);
+            color: var(--gray-500);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--gray-500);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.7rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .footer-bottom strong {
+            color: var(--white);
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-item {
+                min-width: calc(33.333% - 8px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero, .about, .mission, .gallery, .contact {
+                padding: 4rem 0;
+            }
+
+            .logo-placeholder {
+                width: 45px;
+                height: 45px;
+            }
+
+            .logo-text .main {
+                font-size: 1.3rem;
+            }
+
+            .gallery-item {
+                min-width: calc(50% - 6px);
+            }
+
+            .gallery-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+
+            .gallery-item {
+                min-width: calc(100% - 0px);
+                aspect-ratio: 4/3;
+                max-height: 280px;
+            }
+
+            .gallery-slider {
+                gap: 0;
+            }
+
+            .gallery-item {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .gallery-wrapper {
+                padding: 0;
+            }
+
+            .gallery-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+
+            .gallery-arrow.prev {
+                left: 5px;
+            }
+
+            .gallery-arrow.next {
+                right: 5px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <span><i class="fas fa-map-marker-alt"></i> ليبيا - زنتان</span>
+            <span><i class="fas fa-envelope"></i> <a href="mailto:info@topcar.ly">info@topcar.ly</a></span>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo-wrapper">
+                <div class="logo-placeholder">
+                    <span>TC</span>
+                </div>
+                <div class="logo-text">
+                    <span class="main">TOP CAR</span>
+                    <span class="sub">توب كار</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#gallery">المعرض</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#mission">هدفنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>الفخامة تبدأ من هنا</h1>
+            <p>معرض توب كار في ليبيا - زنتان. وجهتك الأولى لاقتناء أفخم السيارات الفاخرة بأسعار تنافسية وخدمة استثنائية.</p>
+            <a href="#gallery" class="btn">تصفح المعرض</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            <p class="section-subtitle">• تعرف علينا •</p>
+            <div class="about-content">
+                <p>
+                    معرض <strong>توب كار</strong> في <strong>ليبيا - زنتان</strong>، متخصص في استيراد وبيع أفخم السيارات من الأسواق العالمية. نضمن لعملائنا الشفافية، الجودة، وأفضل الأسعار.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2 class="section-title">هدفنا</h2>
+            <p class="section-subtitle">• رؤيتنا •</p>
+            <div class="mission-content">
+                <p>
+                    أن نكون الخيار الأول لعشاق السيارات الفاخرة في ليبيا، من خلال تقديم أفضل السيارات بأعلى معايير الجودة وبناء علاقة ثقة دائمة مع عملائنا.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">معرض السيارات</h2>
+            <p class="section-subtitle">• أحدث السيارات •</p>
+
+            <div class="gallery-wrapper">
+                <button class="gallery-arrow prev" id="galleryPrev" aria-label="السابق">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="gallery-slider" id="gallerySlider">
+                    
+                    <div class="gallery-item">
+                        <img src="c1.jpeg" alt="سيارة 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c2.jpeg" alt="سيارة 2" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c3.jpeg" alt="سيارة 3" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c4.jpeg" alt="سيارة 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c5.jpeg" alt="سيارة 5" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c6.jpeg" alt="سيارة 6" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c7.jpeg" alt="سيارة 7" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c8.jpeg" alt="سيارة 8" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c9.jpeg" alt="سيارة 9" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c10.jpeg" alt="سيارة 10" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c11.jpeg" alt="سيارة 11" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c12.jpeg" alt="سيارة 12" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c13.jpeg" alt="سيارة 13" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c14.jpeg" alt="سيارة 14" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c15.jpeg" alt="سيارة 15" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c16.jpeg" alt="سيارة 16" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c17.jpeg" alt="سيارة 17" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c18.jpeg" alt="سيارة 18" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c19.jpeg" alt="سيارة 19" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="c20.jpeg" alt="سيارة 20" loading="lazy">
+                    </div>
+
+                </div>
+
+                <button class="gallery-arrow next" id="galleryNext" aria-label="التالي">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <p class="section-subtitle">• نحن في انتظارك •</p>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <div class="icon-wrapper icon-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>واتساب</h3>
+                    <a href="https://wa.me/218911889787" target="_blank" rel="noopener">+218 91-1889787</a>
+                    <br>
+                    <a href="https://wa.me/218911889787" target="_blank" rel="noopener" class="btn-small">راسلنا الآن</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper icon-facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3>فيسبوك</h3>
+                    <a href="https://www.facebook.com/share/1D1L2uLuTC/?mibextid=wwXIfr" target="_blank" rel="noopener">Top Car</a>
+                    <br>
+                    <a href="https://www.facebook.com/share/1D1L2uLuTC/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn-small">تابعنا</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper icon-instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>إنستجرام</h3>
+                    <a href="https://www.instagram.com/top_car__libya?igsh=eDUyZ2RhZWo3Njlr" target="_blank" rel="noopener">@top_car__libya</a>
+                    <br>
+                    <a href="https://www.instagram.com/top_car__libya?igsh=eDUyZ2RhZWo3Njlr" target="_blank" rel="noopener" class="btn-small">تابعنا</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper icon-phone">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>اتصل بنا</h3>
+                    <a href="tel:+218911889787" class="info-text" style="direction: ltr; display: block;">
+                        +218 91-1889787
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper icon-email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>البريد الإلكتروني</h3>
+                    <a href="mailto:info@topcar.ly">info@topcar.ly</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper icon-maps">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>موقعنا</h3>
+                    <p class="info-text">ليبيا - زنتان</p>
+                    <a href="https://maps.app.goo.gl/8MVSNQeSuh6tVHsE7" target="_blank" rel="noopener" class="btn-small">
+                        <i class="fab fa-google"></i> افتح الخريطة
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>توب كار</h4>
+                    <p>معرض السيارات الفاخرة في ليبيا. الجودة والثقة في مكان واحد.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <a href="#home">الرئيسية</a>
+                    <a href="#gallery">المعرض</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#mission">هدفنا</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+                <div class="footer-col">
+                    <h4>معلومات التواصل</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ليبيا - زنتان</p>
+                    <p><i class="fas fa-phone"></i> +218 91-1889787</p>
+                    <p><i class="fas fa-envelope"></i> info@topcar.ly</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> <strong>TOP CAR - توب كار</strong>. جميع الحقوق محفوظة.</p>
+                <p style="margin-top: 0.5rem;">معرض سيارات فاخرة | ليبيا - زنتان 🇱🇾</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            const toggleBtn = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = navLinks.querySelectorAll('a');
+
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                const icon = toggleBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            navItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    toggleBtn.querySelector('i').classList.add('fa-bars');
+                    toggleBtn.querySelector('i').classList.remove('fa-times');
+                });
+            });
+
+            document.addEventListener('click', function(event) {
+                if (navLinks.classList.contains('active') && !event.target.closest('header')) {
+                    navLinks.classList.remove('active');
+                    toggleBtn.querySelector('i').classList.add('fa-bars');
+                    toggleBtn.querySelector('i').classList.remove('fa-times');
+                }
+            });
+
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', function() {
+                let scrollY = window.pageYOffset;
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionId = section.getAttribute('id');
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navItems.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) link.classList.add('active');
+                        });
+                    }
+                });
+            });
+
+            const slider = document.getElementById('gallerySlider');
+            const prevBtn = document.getElementById('galleryPrev');
+            const nextBtn = document.getElementById('galleryNext');
+            const items = slider.querySelectorAll('.gallery-item');
+            
+            let currentIndex = 0;
+            let itemsPerView = 4;
+
+            function updateItemsPerView() {
+                if (window.innerWidth <= 480) {
+                    itemsPerView = 1;
+                } else if (window.innerWidth <= 768) {
+                    itemsPerView = 2;
+                } else if (window.innerWidth <= 1024) {
+                    itemsPerView = 3;
+                } else {
+                    itemsPerView = 4;
+                }
+            }
+
+            function getGap() {
+                if (window.innerWidth <= 480) return 0;
+                if (window.innerWidth <= 768) return 6;
+                return 12;
+            }
+
+            function updateSlider() {
+                updateItemsPerView();
+                const maxIndex = items.length - itemsPerView;
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+                
+                const itemWidth = items[0].offsetWidth;
+                const gap = getGap();
+                const offset = currentIndex * (itemWidth + gap);
+                
+                slider.style.transform = `translateX(${offset}px)`;
+
+                if (currentIndex === 0) {
+                    prevBtn.classList.add('disabled');
+                } else {
+                    prevBtn.classList.remove('disabled');
+                }
+
+                if (currentIndex >= maxIndex) {
+                    nextBtn.classList.add('disabled');
+                } else {
+                    nextBtn.classList.remove('disabled');
+                }
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                updateItemsPerView();
+                const maxIndex = items.length - itemsPerView;
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+
+            window.addEventListener('resize', updateSlider);
+            updateSlider();
+        })();
+    </script>
+
+</body>
+</html>
